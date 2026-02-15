@@ -17,7 +17,7 @@ public class CodingService {
     private final CodingAttemptRepository attempts;
     public CodingService(CodingAttemptRepository attempts) { this.attempts = attempts; }
 
-    public PlatformDtos.CodeRunResponse execute(Long userId, PlatformDtos.CodeRunRequest req) {
+    public PlatformDtos.CodeRunResponse execute(String userId, PlatformDtos.CodeRunRequest req) {
         try {
             Path dir = Files.createTempDirectory("java-run");
             Path src = dir.resolve("Main.java");

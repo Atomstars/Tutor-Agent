@@ -16,7 +16,7 @@ public class AnalyticsService {
     private final MockInterviewResultRepository mocks;
     public AnalyticsService(CodingAttemptRepository attempts, MockInterviewResultRepository mocks) { this.attempts = attempts; this.mocks = mocks; }
 
-    public PlatformDtos.DashboardResponse dashboard(Long userId) {
+    public PlatformDtos.DashboardResponse dashboard(String userId) {
         List<CodingAttempt> c = attempts.findByUserId(userId);
         List<MockInterviewResult> m = mocks.findByUserId(userId);
         double accuracy = c.stream().mapToInt(a -> a.isPassed() ? 1 : 0).average().orElse(0) * 100;

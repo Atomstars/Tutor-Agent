@@ -27,5 +27,5 @@ public class AuthService {
         if (!encoder.matches(req.getPassword(), u.getPasswordHash())) throw new ApiException("Invalid credentials");
         return new AuthDtos.AuthResponse(jwt.generate(u.getEmail()), u.getEmail(), u.getFullName());
     }
-    public Long userIdByEmail(String email) { return users.findByEmail(email).orElseThrow(() -> new ApiException("User not found")).getId(); }
+    public String userIdByEmail(String email) { return users.findByEmail(email).orElseThrow(() -> new ApiException("User not found")).getId(); }
 }

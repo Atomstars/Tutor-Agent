@@ -1,10 +1,10 @@
 package com.tutoragent.repository;
 
 import com.tutoragent.entity.MockInterviewResult;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface MockInterviewResultRepository extends JpaRepository<MockInterviewResult, Long> {
-    List<MockInterviewResult> findByUserId(Long userId);
+public interface MockInterviewResultRepository extends MongoRepository<MockInterviewResult, String> {
+    List<MockInterviewResult> findByUserId(String userId);
 }

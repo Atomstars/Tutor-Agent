@@ -12,7 +12,7 @@ public class LearningService {
     private final LevelProgressRepository progressRepository;
 
     public LearningService(LevelProgressRepository progressRepository) { this.progressRepository = progressRepository; }
-    public List<Map<String,Object>> getLevels(Long userId) {
+    public List<Map<String,Object>> getLevels(String userId) {
         Map<Integer, LevelProgress> map = new HashMap<>();
         progressRepository.findByUserIdOrderByLevelNumberAsc(userId).forEach(p -> map.put(p.getLevelNumber(), p));
         List<Map<String,Object>> out = new ArrayList<>();

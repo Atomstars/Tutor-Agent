@@ -12,7 +12,7 @@ public class MockInterviewService {
     private final MockInterviewResultRepository repo;
     public MockInterviewService(MockInterviewResultRepository repo) { this.repo = repo; }
 
-    public PlatformDtos.MockResponse evaluate(Long userId, PlatformDtos.MockRequest req) {
+    public PlatformDtos.MockResponse evaluate(String userId, PlatformDtos.MockRequest req) {
         int coverage = req.getAnswers() == null ? 0 : req.getAnswers().stream().mapToInt(a -> Math.min(a.length(), 100)).sum() / Math.max(req.getAnswers().size(), 1);
         int score = Math.min(100, 50 + coverage / 2);
         String feedback = "Focus on STAR method, edge cases, JVM internals, and SQL optimization for " + (req.getCompany() == null ? "target companies" : req.getCompany());

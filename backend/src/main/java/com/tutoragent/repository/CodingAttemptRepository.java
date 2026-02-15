@@ -1,10 +1,10 @@
 package com.tutoragent.repository;
 
 import com.tutoragent.entity.CodingAttempt;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface CodingAttemptRepository extends JpaRepository<CodingAttempt, Long> {
-    List<CodingAttempt> findByUserId(Long userId);
+public interface CodingAttemptRepository extends MongoRepository<CodingAttempt, String> {
+    List<CodingAttempt> findByUserId(String userId);
 }

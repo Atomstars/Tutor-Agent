@@ -1,15 +1,15 @@
 package com.tutoragent.entity;
 
-import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "level_progress")
+@Document(collection = "level_progress")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
 public class LevelProgress {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Long userId;
+    @Id
+    private String id;
+    private String userId;
     private int levelNumber;
     private boolean theoryCompleted;
     private boolean codingCompleted;
